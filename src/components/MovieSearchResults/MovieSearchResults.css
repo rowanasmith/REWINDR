@@ -1,0 +1,17 @@
+.poster {
+    max-width: 200px;
+}
+
+.table {
+    text-align: center;
+    padding: 40px;
+}
+
+td {
+    padding: 20px;
+    font-size: 20px;
+}
+
+th {
+    font-size: 40px;
+}

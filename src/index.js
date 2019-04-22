@@ -10,6 +10,8 @@ import rootSaga from './redux/sagas'; // imports ./redux/sagas/index.js
 
 import App from './components/App/App';
 
+
+
 const sagaMiddleware = createSagaMiddleware();
 
 // this line creates an array of all of redux middleware you want to use
@@ -22,7 +24,8 @@ const middlewareList = process.env.NODE_ENV === 'development' ?
 const store = createStore(
   // tells the saga middleware to use the rootReducer
   // rootSaga contains all of our other reducers
-  rootReducer,
+    rootReducer,
+
   // adds all middleware to our project including saga and logger
   applyMiddleware(...middlewareList),
 );
