@@ -11,7 +11,7 @@ const passport = require('./strategies/user.strategy');
 // Route includes
 const userRouter = require('./routes/user.router');
 const movieSearchRouter = require ('./routes/movie.search.router');
-const movieDisplayRouter = require ('.routes/movie.display.router/');
+const movieDisplayRouter = require ('./routes/movie.display.router');
 
 // Body parser middleware
 app.use(bodyParser.json());

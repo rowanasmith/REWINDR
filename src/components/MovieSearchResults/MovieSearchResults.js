@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import styles from './MovieSearchResults.css'
 import { Link } from 'react-router-dom';
+import MovieSearchResultItem from '../MovieSearchResultItem/MovieSearchResultItem';
 
 
 
 class MovieSearchResults extends Component {
-
 
 
   render() {
@@ -24,13 +24,7 @@ class MovieSearchResults extends Component {
           <tbody>
 
             {this.props.movieSearchResults.Search.map(item => 
-              <tr key={item.imdbID}>
-              <td><img className="poster" src={`${item.Poster}`} alt='Poster'></img></td>
-              <td><Link to={`/movie/${item.imdbID}`}>
-              {item.Title}
-              </Link></td>
-              <td>{item.Year}</td>
-            </tr>
+              (<MovieSearchResultItem item={item} />)
             )}
           </tbody>
         </table>

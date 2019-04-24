@@ -25,7 +25,7 @@ const Nav = (props) => (
       )}
       {/* Always show this link since the about page is not protected */}
 
-      <Link className="nav-link" to="/movies">
+      <Link className="nav-link" to="/moviesearch">
         Movies
       </Link>
     </div>
