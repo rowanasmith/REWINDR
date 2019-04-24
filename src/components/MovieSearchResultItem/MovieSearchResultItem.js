@@ -8,6 +8,8 @@ class MovieSearchResultItem extends Component {
       type: "CURRENT_MOVIE",
       payload: this.props.item.imdbID,
   });    
+  window.location = "#/movie";
+
   }
 
 

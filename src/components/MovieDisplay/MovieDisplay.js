@@ -1,49 +1,42 @@
-// import React, { Component } from 'react';
-// import {connect} from 'react-redux';
-// import { Link } from 'react-router-dom';
-// import Axios from 'axios';
+import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import { Link } from 'react-router-dom';
+import Axios from 'axios';
 
 
 
-// class MovieDisplay extends Component {
+class MovieDisplay extends Component {
 
 
-//   render() {
-//       if (this.props.movieSearchResults.Search){
-//     return (
-//       <div className="App">
-//         <header>
-//         <h1>Search Results</h1>
-//         <h3>Total Results: {this.props.movieSearchResults.totalResults}</h3>
-//         </header>
-//         <table className="table">
-//           <thead>
-//             <tr><th>Poster</th><th>Title</th><th>Year</th></tr>
-//           </thead>
-//           <tbody>
+  render() {
+      let movie = this.props.currentMovieReducer
+      if (this.props.currentMovieReducer){
+    return (
+      <div className="App">
+        <header>
+        <h1>{movie.Title}</h1>
+        <img className="poster" src={`${movie.Poster}`} alt='Poster'></img>
+        <h2>{movie.Year}</h2>
+        <h2>Rating: {movie.Rated}</h2>
+        <h3>Released: {movie.Released}</h3>
+        <h3>Runtime: {movie.Runtime}</h3>
+        <h3>{movie.Genre}</h3> 
+        </header>
+        <div>
+            <p>Director: {movie.Director}</p>
+            <p>Written By: {movie.Writer}</p>
+            <p>Starring: {movie.Actors}</p>
+            <p>{movie.Plot}</p>
+        </div>
+      </div>
+    );
+    }
+  
+  else return [];
+}
 
-//             {this.props.movieSearchResults.Search.map(item => 
-//               <tr key={item.imdbID}>
-//               <td><img className="poster" src={`${item.Poster}`} alt='Poster'></img></td>
-//               <td><Link to={`/movie/${item.imdbID}`}>
-//               {item.Title}
-//               </Link></td>
-//               <td>{item.Year}</td>
-//             </tr>
-//             )}
-//           </tbody>
-//         </table>
-//       </div>
-//     );
-//   }
-//   else if (this.props.movieSearchResults.Response === "False"){
-//       return (<h1>Movie Not Found!</h1>)
-//   }
-//   else return [];
-// }
-
-// }
-// const mapStateToProps = state => ({
-//     movieSearchResults: state.movieSearchResults,
-//   });
-// export default connect(mapStateToProps)(MovieDisplay);
+}
+const mapStateToProps = state => ({
+    movieSearchResults: state.movieSearchResults,
+  });
+export default connect(mapStateToProps)(MovieDisplay);
