@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import MovieSearchResults from '../MovieSearchResults/MovieSearchResults'
 import {connect} from 'react-redux';
 
@@ -19,23 +18,14 @@ class MovieSearch extends Component {
     };
   
     getMovie = () => {
-    let urlVar = `http://www.omdbapi.com/?apikey=815b3236&s=${this.state.search}`;
-    axios({
-        method: 'GET',
-        url: urlVar,
-    })
-    .then( (response) => {
-      this.setState({
-        search: response.data,
-      })
-      this.sendResults();
-      })      
-  }
-  
-  sendResults = () => {
-    const action = {type: 'SET_SEARCH_RESULTS', payload: this.state.search}
-    this.props.dispatch(action)
-  }
+
+        console.log(this.state.search);
+        this.props.dispatch({
+            type: "MOVIE_SEARCH",
+            payload: this.state.search,
+        });
+    }
+        
 
   render() {
     return (
