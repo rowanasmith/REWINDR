@@ -24,7 +24,7 @@ class MovieSearchResults extends Component {
           <tbody>
 
             {this.props.movieSearchResults.Search.map(item => 
-              (<MovieSearchResultItem item={item} />)
+              (<MovieSearchResultItem item={item} key={item.imdbID}/>)
             )}
           </tbody>
         </table>

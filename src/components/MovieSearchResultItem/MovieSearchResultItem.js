@@ -4,7 +4,10 @@ import {connect} from 'react-redux';
 class MovieSearchResultItem extends Component {
 
   handleClick = () => {
-    console.log('hooooooptie');
+    this.props.dispatch({
+      type: "CURRENT_MOVIE",
+      payload: this.props.item.imdbID,
+  });
     
   }
 
