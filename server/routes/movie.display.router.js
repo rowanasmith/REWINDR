@@ -8,7 +8,7 @@ const axios = require('axios')
 
 router.get('/:id', (req, res) => {
         console.log(process.env.OMDB_API_KEY);
-        let keyword = req.params.searchterm
+        let id = req.params.id
         let urlVar = `http://www.omdbapi.com/?apikey=${process.env.OMDB_API_KEY}&i=${id}`;
         axios.get(urlVar)
         .then( (response) => {

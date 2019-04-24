@@ -7,9 +7,9 @@ class MovieSearchResultItem extends Component {
     this.props.dispatch({
       type: "CURRENT_MOVIE",
       payload: this.props.item.imdbID,
-  });
-    
+  });    
   }
+
 
   render() {
     return (

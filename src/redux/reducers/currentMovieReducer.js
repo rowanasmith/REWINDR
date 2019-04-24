@@ -1,4 +1,4 @@
-const currentMovieReducer = (state=[{Search: ''}], action) => {
+const currentMovieReducer = (state=[], action) => {
 
 
     if (action.type === 'SET_CURRENT_MOVIE'){
