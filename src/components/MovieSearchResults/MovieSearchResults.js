@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import styles from './MovieSearchResults.css'
-import { Link } from 'react-router-dom';
+
 import MovieSearchResultItem from '../MovieSearchResultItem/MovieSearchResultItem';
 
 

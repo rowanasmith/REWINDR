@@ -1,14 +1,18 @@
-router.get('/', (req, res) => {
-    const queryText = `SELECT "projects"."name", "projects"."description", 
-    "projects"."thumbnail", "projects"."website", 
-    "projects"."github", "projects"."date_completed", 
-    "tags"."name" AS "tag_id" FROM "projects" 
-    JOIN "tags" ON "projects"."tag_id" = "tags"."id"
-    ORDER BY "date_completed";`;
-    pool.query(queryText)
+const express = require('express');
+const pool = require('../modules/pool');
+const router = express.Router();
+const axios = require('axios')
+
+router.get('/:id', (req, res) => {
+    let id = req.params.id
+
+    const queryText = `SELECT * FROM releases WHERE imdb_id = $1;`
+    pool.query(queryText, [id])
       .then((result) => { res.send(result.rows); })
       .catch((err) => {
-        console.log('Error completing SELECT plant query', err);
+        console.log('Error completing SELECT releases query', err);
         res.sendStatus(500);
       });
   });
+
+  module.exports = router;

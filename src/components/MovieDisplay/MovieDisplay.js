@@ -1,16 +1,21 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import styles from './MovieDisplay.css';
+import  './MovieDisplay.css';
 import ReleaseTable from '../ReleaseTable/ReleaseTable'
 
 
 
 class MovieDisplay extends Component {
 
-    addNew = () => {
-        window.location = "#/newrelease";
+    getReleases = () => {
 
-    }
+        this.props.dispatch({ 
+            type: "GET_RELEASES", 
+            payload: this.props.currentMovieReducer.imdbID, 
+        });
+      };
+
+
 
     renderPage = () => {
         if (this.props.currentMovieReducer[0] === 'State'){
@@ -19,6 +24,7 @@ class MovieDisplay extends Component {
           </div>
       )}
       else return(
+
 
         <div className="MovieDisplay">
           <header>
@@ -34,7 +40,9 @@ class MovieDisplay extends Component {
               <p>Written By: {this.props.currentMovieReducer.Writer}</p>
               <p>Starring: {this.props.currentMovieReducer.Actors}</p>
               <p>{this.props.currentMovieReducer.Plot}</p>
+              {this.getReleases()}
           </div>
+          {/* <button onClick={this.getReleases}>Click Here to See Releases</button> */}
         </div>
       );
       }
