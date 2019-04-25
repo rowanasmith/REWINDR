@@ -17,6 +17,7 @@ import UserPage from '../UserPage/UserPage';
 import MovieSearch from '../MovieSearch/MovieSearch'
 import MovieDisplay from '../MovieDisplay/MovieDisplay'
 import NewReleasePage from '../NewReleasePage/NewReleasePage'
+import MyLists from '../MyLists/MyLists';
 
 import './App.css';
 
@@ -64,6 +65,11 @@ class App extends Component {
               exact
               path="/newrelease"
               component={NewReleasePage}
+            />
+            <Route
+              exact
+              path="/lists"
+              component={MyLists}
             />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />

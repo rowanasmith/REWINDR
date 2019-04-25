@@ -28,6 +28,9 @@ const Nav = (props) => (
       <Link className="nav-link" to="/moviesearch">
         Movies
       </Link>
+      <Link className="nav-link" to="/lists">
+        My Lists
+      </Link>
     </div>
   </div>
 );
