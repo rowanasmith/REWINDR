@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 
 
 
-class MyLists extends Component {
+class DisplayMyLists extends Component {
 
     componentDidMount(){
         this.getLists();
@@ -12,12 +12,12 @@ class MyLists extends Component {
     getLists = () => {
         this.props.dispatch({
             type: "GET_LISTS",
-            payload: this.props.reduxState.user.id
+            payload: this.props.user.id
         });
     }
 
     addNew = () => {
-        window.location = "#/newrelease";
+        window.location = "#/newlist";
 
     }
 
@@ -32,7 +32,6 @@ class MyLists extends Component {
         <h1>
             My Lists
         </h1>
-        <button onClick={this.addNew}>Add New List</button>
         <table>
             <thead>
                 <tr>
@@ -51,6 +50,8 @@ class MyLists extends Component {
     render() {
         return(
             <div>
+            <button onClick={this.addNew}>Add New List</button>
+
             {this.renderPage()}
             </div>
         )
@@ -60,6 +61,7 @@ class MyLists extends Component {
 const mapStateToProps = state => ({
     currentMovieReducer: state.currentMovieReducer,
     releasesReducer: state.releasesReducer,
-    setListsReducer: state.setListsReducer
+    setListsReducer: state.setListsReducer,
+    user: state.user
   });
-export default connect(mapStateToProps)(MyLists);
+export default connect(mapStateToProps)(DisplayMyLists);

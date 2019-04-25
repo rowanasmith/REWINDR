@@ -15,7 +15,7 @@ function* getLists(action) {
       }
   }
 
-  function* getReleasesSaga() {
+  function* getListsSaga() {
     yield takeLatest("GET_LISTS", getLists);
   }
   

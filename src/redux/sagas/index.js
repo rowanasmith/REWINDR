@@ -6,6 +6,7 @@ import movieSearchSaga from './movieSearchSaga';
 import currentMovieSaga from './currentMovieSaga';
 import newReleaseSaga from './newReleaseSaga';
 import getReleasesSaga from './getReleasesSaga';
+import getListsSaga from './getListsSaga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -23,5 +24,6 @@ export default function* rootSaga() {
     currentMovieSaga(),
     newReleaseSaga(),
     getReleasesSaga(),
+    getListsSaga(),
   ]);
 }
