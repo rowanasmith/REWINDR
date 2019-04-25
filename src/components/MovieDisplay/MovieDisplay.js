@@ -1,42 +1,73 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import { Link } from 'react-router-dom';
-import Axios from 'axios';
+import styles from './MovieDisplay.css';
 
 
 
 class MovieDisplay extends Component {
 
+    addNew = () => {
+        window.location = "#/newrelease";
+
+    }
+
+    renderPage = () => {
+        if (this.props.currentMovieReducer[0] === 'State'){
+      return (
+          <div>
+          </div>
+      )}
+      else return(
+
+        <div className="MovieDisplay">
+          <header>
+          <h1>{this.props.currentMovieReducer.Title}</h1>
+          <img className="displayPoster" src={`${this.props.currentMovieReducer.Poster}`} alt='Poster'></img>
+          <h2>Rating: {this.props.currentMovieReducer.Rated}</h2>
+          <h3>Released: {this.props.currentMovieReducer.Released}</h3>
+          <h3>Runtime: {this.props.currentMovieReducer.Runtime}</h3>
+          <h3>{this.props.currentMovieReducer.Genre}</h3> 
+          </header>
+          <div>
+              <p>Director: {this.props.currentMovieReducer.Director}</p>
+              <p>Written By: {this.props.currentMovieReducer.Writer}</p>
+              <p>Starring: {this.props.currentMovieReducer.Actors}</p>
+              <p>{this.props.currentMovieReducer.Plot}</p>
+          </div>
+        </div>
+      );
+      }
+
+    
 
   render() {
-      let movie = this.props.currentMovieReducer
-      if (this.props.currentMovieReducer){
-    return (
-      <div className="App">
-        <header>
-        <h1>{movie.Title}</h1>
-        <img className="poster" src={`${movie.Poster}`} alt='Poster'></img>
-        <h2>{movie.Year}</h2>
-        <h2>Rating: {movie.Rated}</h2>
-        <h3>Released: {movie.Released}</h3>
-        <h3>Runtime: {movie.Runtime}</h3>
-        <h3>{movie.Genre}</h3> 
-        </header>
-        <div>
-            <p>Director: {movie.Director}</p>
-            <p>Written By: {movie.Writer}</p>
-            <p>Starring: {movie.Actors}</p>
-            <p>{movie.Plot}</p>
-        </div>
+      return(
+          <div>
+          <div>
+      {this.renderPage()}
       </div>
-    );
-    }
-  
-  else return [];
-}
+      <div>
+          <h1>
+              Releases
+          </h1>
+          <button onClick={this.addNew}>Add New Release</button>
+          <table>
+              <thead>
+                  <th>Image</th>
+                  <th>Company</th>
+                  <th>Release Year</th>
+                  <th>Catalog Number</th>
+              </thead>
+              <tbody>
 
+              </tbody>
+          </table>
+      </div>
+      </div>
+      )
+  }
 }
 const mapStateToProps = state => ({
-    movieSearchResults: state.movieSearchResults,
+    currentMovieReducer: state.currentMovieReducer,
   });
 export default connect(mapStateToProps)(MovieDisplay);

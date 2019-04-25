@@ -16,6 +16,7 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 import UserPage from '../UserPage/UserPage';
 import MovieSearch from '../MovieSearch/MovieSearch'
 import MovieDisplay from '../MovieDisplay/MovieDisplay'
+import NewReleasePage from '../NewReleasePage/NewReleasePage'
 
 import './App.css';
 
@@ -58,6 +59,11 @@ class App extends Component {
               exact
               path="/movie"
               component={MovieDisplay}
+            />
+            <Route
+              exact
+              path="/newrelease"
+              component={NewReleasePage}
             />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />

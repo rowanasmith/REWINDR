@@ -9,7 +9,7 @@ const axios = require('axios')
 router.get('/:id', (req, res) => {
         console.log(process.env.OMDB_API_KEY);
         let id = req.params.id
-        let urlVar = `http://www.omdbapi.com/?apikey=${process.env.OMDB_API_KEY}&i=${id}`;
+        let urlVar = `http://www.omdbapi.com/?apikey=${process.env.OMDB_API_KEY}&i=${id}&plot=full`;
         axios.get(urlVar)
         .then( (response) => {
         console.log(response.data);
