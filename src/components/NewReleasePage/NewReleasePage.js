@@ -1,57 +1,31 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import styles from './NewReleasePage.css'
 
-import { withStyles } from "@material-ui/core/styles";
-import MenuItem from "@material-ui/core/MenuItem";
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
 
 const mapStateToProps = reduxState => ({
   reduxState
 });
 
-const styles = theme => ({
-  container: {
-    display: "flex",
-    flexWrap: "wrap"
-  },
-  textField: {
-    marginLeft: theme.spacing.unit,
-    marginRight: theme.spacing.unit,
-    width: 200
-  },
-  dense: {
-    marginTop: 19
-  },
-  menu: {
-    width: 200
-  }
-});
-
 class NewReleasePage extends Component {
   state = {
     newRelease: {
-      name: "",
-      description: "",
-      thumbnail: "",
-      website: "",
-      github: "",
-      date_completed: "",
-      tag_id: ""
+        imdb_id: `${this.props.reduxState.currentMovieReducer.imdbID}`,
+      image: `${this.props.reduxState.currentMovieReducer.Poster}`,
+      company: "",
+      release_year: "",
+      release_notes: "",
+      catalog_number: ""
     }
   };
 
-  //This will get the tags you will need to choose from
-  //from the tag reducer
-  componentDidMount = () => {
-    this.props.dispatch({ type: "GET_TAGS" });
-  };
+  
 
   //this will update the state as the input forms are changed
   handleChange = propertyName => event => {
     this.setState({
-      newProject: {
-        ...this.state.newProject,
+      newRelease: {
+        ...this.state.newRelease,
         [propertyName]: event.target.value
       }
     });
@@ -60,115 +34,29 @@ class NewReleasePage extends Component {
   //this function will send the state to get caught by
   //saga and eventually post to the db as well as clear
   //all input fields
-  addNewProject = event => {
-    event.preventDefault();
+  addNewRelease = () => {
     this.props.dispatch({
-      type: "ADD_PROJECT",
-      payload: this.state.newProject
-    });
-    this.setState({
-      newProject: {
-        id: "",
-        name: "",
-        description: "",
-        thumbnail: "",
-        website: "",
-        github: "",
-        date_completed: "",
-        tag_id: ""
-      }
+      type: "ADD_NEW_RELEASE",
+      payload: this.state.newRelease
     });
   };
 
   render() {
-    const { classes } = this.props;
     return (
       <div>
-        <form className={classes.container} noValidate autoComplete="off">
-          <TextField
-            label="Name (Required)"
-            className={classes.textField}
-            value={this.state.newProject.name}
-            onChange={this.handleChange("name")}
-            margin="normal"
-          />
-
-          <TextField
-            label="Description"
-            className={classes.textField}
-            value={this.state.newProject.description}
-            onChange={this.handleChange("description")}
-            margin="normal"
-          />
-
-          <TextField
-            label="Thumbnail"
-            className={classes.textField}
-            value={this.state.newProject.thumbnail}
-            onChange={this.handleChange("thumbnail")}
-            margin="normal"
-          />
-
-          <TextField
-            label="Website"
-            className={classes.textField}
-            value={this.state.newProject.website}
-            onChange={this.handleChange("website")}
-            margin="normal"
-          />
-
-          <TextField
-            label="Github"
-            className={classes.textField}
-            value={this.state.newProject.github}
-            onChange={this.handleChange("github")}
-            margin="normal"
-          />
-
-          <TextField
-            label="Date Completed (Required)"
-            type="date"
-            value={this.state.newProject.date_completed}
-            className={classes.textField}
-            onChange={this.handleChange("date_completed")}
-            margin="normal"
-            InputLabelProps={{
-              shrink: true
-            }}
-          />
-
-          <TextField
-            select
-            label="Select A Tag (Required)"
-            className={classes.textField}
-            value={this.state.newProject.tag_id}
-            onChange={this.handleChange("tag_id")}
-            SelectProps={{
-              MenuProps: {
-                className: classes.menu
-              }
-            }}
-            margin="normal"
-          >
-            {this.props.reduxState.tags.map(tags => (
-              <MenuItem key={tags.id} value={tags.id}>
-                {tags.name}
-              </MenuItem>
-            ))}
-          </TextField>
-
-          <Button
-            variant="contained"
-            color="primary"
-            className={classes.button}
-            onClick={this.addNewProject}
-          >
-            Submit
-          </Button>
+         {JSON.stringify(this.state.newRelease)}
+        <h1>Add a New Release!</h1>
+        <form>
+        <img className="poster" src={`${this.props.reduxState.currentMovieReducer.Poster}`} alt='Poster'></img>
+            <input type="text" onChange={this.handleChange("name")} value={this.state.newRelease.name} placeholder="Company (Required)"></input>
+            <input type="text" onChange={this.handleChange("release_year")} value={this.state.newRelease.release_year} placeholder="Release Year"></input>
+            <input type="text" onChange={this.handleChange("release_notes")} value={this.state.newRelease.release_notes} placeholder="Release Notes"></input>
+            <input type="text" onChange={this.handleChange("catalog_number")} value={this.state.newRelease.catalog_number} placeholder="Catalog Number"></input>
+            <button onClick={this.addNewRelease}>Add New Release</button>
         </form>
       </div>
     );
   }
 }
 
-export default connect(mapStateToProps)(withStyles(styles)(NewReleasePage));
+export default connect(mapStateToProps)(NewReleasePage);
