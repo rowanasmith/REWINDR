@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import styles from './MovieDisplay.css';
+import ReleaseTable from '../ReleaseTable/ReleaseTable'
 
 
 
@@ -42,31 +43,14 @@ class MovieDisplay extends Component {
 
   render() {
       return(
-          <div>
+
           <div>
       {this.renderPage()}
+      <ReleaseTable />
       </div>
-      <div>
-          <h1>
-              Releases
-          </h1>
-          <button onClick={this.addNew}>Add New Release</button>
-          <table>
-              <thead>
-                  <th>Image</th>
-                  <th>Company</th>
-                  <th>Release Year</th>
-                  <th>Catalog Number</th>
-              </thead>
-              <tbody>
-
-              </tbody>
-          </table>
-      </div>
-      </div>
-      )
-  }
+      )}
 }
+
 const mapStateToProps = state => ({
     currentMovieReducer: state.currentMovieReducer,
   });

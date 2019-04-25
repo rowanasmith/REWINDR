@@ -12,6 +12,8 @@ const passport = require('./strategies/user.strategy');
 const userRouter = require('./routes/user.router');
 const movieSearchRouter = require ('./routes/movie.search.router');
 const movieDisplayRouter = require ('./routes/movie.display.router');
+const newReleaseRouter = require('./routes/new.release.router');
+const releaseDisplayRouter = require('./routes/release.display.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -28,6 +30,8 @@ app.use(passport.session());
 app.use('/api/user', userRouter);
 app.use('/movie-search', movieSearchRouter);
 app.use('/movie', movieDisplayRouter);
+app.use('/newrelease', newReleaseRouter)
+app.use('/releases', releaseDisplayRouter)
 
 // Serve static files
 app.use(express.static('build'));
