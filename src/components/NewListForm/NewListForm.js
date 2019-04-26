@@ -9,8 +9,8 @@ const mapStateToProps = reduxState => ({
 class NewListForm extends Component {
   state = {
     newList: {
+    user_id: `${this.props.reduxState.user.id}`,
     list_name: ``,
-    user_id: `${this.props.reduxState.user.id}`
 
     }
   };

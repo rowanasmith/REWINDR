@@ -36,11 +36,13 @@ class DisplayMyLists extends Component {
             <thead>
                 <tr>
                 <th>List Name</th>
-                <th>Number of Items</th>
                 </tr>
             </thead>
             <tbody>
-
+            {this.props.setListsReducer.map(item => (
+                <tr><td>{item.list_name}</td></tr>
+            )
+            )}
             </tbody>
         </table>
     </div>

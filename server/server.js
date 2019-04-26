@@ -14,6 +14,9 @@ const movieSearchRouter = require ('./routes/movie.search.router');
 const movieDisplayRouter = require ('./routes/movie.display.router');
 const newReleaseRouter = require('./routes/new.release.router');
 const releaseDisplayRouter = require('./routes/release.display.router');
+const newListRouter = require('./routes/new.list.router')
+const getListsRouter = require ('./routes/get.lists.router')
+const displayListRouter = require ('./routes/display.list.router')
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -32,6 +35,9 @@ app.use('/movie-search', movieSearchRouter);
 app.use('/movie', movieDisplayRouter);
 app.use('/newrelease', newReleaseRouter)
 app.use('/releases', releaseDisplayRouter)
+app.use('/newlist', newListRouter)
+app.use('/lists', getListsRouter);
+app.use('/list', displayListRouter);
 
 // Serve static files
 app.use(express.static('build'));
