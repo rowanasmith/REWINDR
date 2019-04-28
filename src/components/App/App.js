@@ -19,6 +19,7 @@ import MovieDisplay from '../MovieDisplay/MovieDisplay'
 import NewReleasePage from '../NewReleasePage/NewReleasePage'
 import DisplayMyLists from '../DisplayMyLists/DisplayMyLists';
 import NewListForm from '../NewListForm/NewListForm';
+import AddToList from '../AddToList/AddToList'
 
 
 import './App.css';
@@ -63,20 +64,25 @@ class App extends Component {
               path="/movie"
               component={MovieDisplay}
             />
-            <Route
+            <ProtectedRoute
               exact
               path="/newrelease"
               component={NewReleasePage}
             />
-            <Route
+            <ProtectedRoute
               exact
               path="/lists"
               component={DisplayMyLists}
             />
-              <Route
+              <ProtectedRoute
               exact
               path="/newlist"
               component={NewListForm}
+            />
+              <ProtectedRoute
+              exact
+              path="/addtolist"
+              component={AddToList}
             />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />

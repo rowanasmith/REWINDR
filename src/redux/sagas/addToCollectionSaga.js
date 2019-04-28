@@ -5,7 +5,7 @@ function* addToCollection(action) {
     try {
         console.log(action.payload);
         
-     yield axios.post(`/add`, action.payload);
+     yield axios.post(`/addmovie`, action.payload);
       alert(" Release successfully added to collection");
     } catch (error) {
       console.log(`Couldn't add release`, error);
@@ -14,7 +14,7 @@ function* addToCollection(action) {
   }
 
   function* addToCollectionSaga() {
-    yield takeLatest("ADD_TO_COLLECTION", addToCollection);
+    yield takeLatest("ADD_TO_LIST", addToCollection);
   }
   
   export default addToCollectionSaga;

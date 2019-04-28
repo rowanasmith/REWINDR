@@ -6,6 +6,7 @@ import movieSearchResults from './movieSearchReducer';
 import currentMovieReducer from './currentMovieReducer';
 import releasesReducer from './releasesReducer'
 import setListsReducer from './setListsReducer';
+import addToListReducer from './addToListReducer'
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -14,6 +15,7 @@ import setListsReducer from './setListsReducer';
 // Lets make a bigger object for our store, with the objects from our reducers.
 // This is what we get when we use 'state' inside of 'mapStateToProps'
 const rootReducer = combineReducers({
+  addToListReducer, //this will store data about a specific release that can then be sent to the list item db
   setListsReducer, //this will pull all the user's lists from the db and display them
   releasesReducer, //this will gather all the releases of a specified movie from the database
   movieSearchResults, //will store the results from an API GET request

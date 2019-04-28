@@ -53,3 +53,17 @@ input {
 form {
     background-color: #272222;
 }
+
+.table {
+    text-align: center;
+    padding: 40px;
+}
+
+td {
+    padding: 20px;
+    font-size: 20px;
+}
+
+th {
+    font-size: 40px;
+}
