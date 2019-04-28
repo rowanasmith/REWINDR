@@ -20,6 +20,7 @@ import NewReleasePage from '../NewReleasePage/NewReleasePage'
 import DisplayMyLists from '../DisplayMyLists/DisplayMyLists';
 import NewListForm from '../NewListForm/NewListForm';
 import AddToList from '../AddToList/AddToList'
+import List from '../List/List'
 
 
 import './App.css';
@@ -71,7 +72,7 @@ class App extends Component {
             />
             <ProtectedRoute
               exact
-              path="/lists"
+              path="/mylists"
               component={DisplayMyLists}
             />
               <ProtectedRoute
@@ -83,6 +84,11 @@ class App extends Component {
               exact
               path="/addtolist"
               component={AddToList}
+            />
+              <Route
+              exact
+              path="/list"
+              component={List}
             />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />

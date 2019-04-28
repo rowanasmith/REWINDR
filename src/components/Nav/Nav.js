@@ -28,7 +28,7 @@ const Nav = (props) => (
       <Link className="nav-link" to="/moviesearch">
         Movies
       </Link>
-      <Link className="nav-link" to="/lists">
+      <Link className="nav-link" to="/mylists">
         My Lists
       </Link>
     </div>

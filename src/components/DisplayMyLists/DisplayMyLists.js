@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import ListItems from '../ListItems/ListItems';
 
 
 
@@ -8,6 +9,8 @@ class DisplayMyLists extends Component {
     componentDidMount(){
         this.getLists();
     }
+
+
 
     getLists = () => {
         this.props.dispatch({
@@ -39,9 +42,8 @@ class DisplayMyLists extends Component {
                 </tr>
             </thead>
             <tbody>
-            {this.props.setListsReducer.map(item => (
-                <tr><td>{item.list_name}</td></tr>
-            )
+            {this.props.setListsReducer.map(item => 
+              (<ListItems item={item} key={item.id}/>)
             )}
             </tbody>
         </table>

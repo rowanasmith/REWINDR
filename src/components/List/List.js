@@ -1,20 +1,22 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 
-import MovieSearchResultItem from '../MovieSearchResultItem/MovieSearchResultItem';
 
 
 
-class MovieSearchResults extends Component {
+class List extends Component {
 
 
   render() {
-      if (this.props.movieSearchResults.Search){
+      if (this.props.reduxState.listContentReducer === 'State'){
     return (
+      <div></div>
+    )}
+    else return(
       <div className="App">
         <header>
         <h1></h1>
-        <h3>Total Results: {this.props.movieSearchResults.totalResults}</h3>
+        <h3>List Contents: </h3>
         </header>
         <table className="table">
           <thead>
@@ -22,22 +24,16 @@ class MovieSearchResults extends Component {
           </thead>
           <tbody>
 
-            {this.props.movieSearchResults.Search.map(item => 
-              (<MovieSearchResultItem item={item} key={item.imdbID}/>)
-            )}
           </tbody>
         </table>
       </div>
     );
   }
-  else if (this.props.movieSearchResults.Response === "False"){
-      return (<h1>Movie Not Found!</h1>)
-  }
-  else return [];
-}
+
 
 }
-const mapStateToProps = state => ({
-    movieSearchResults: state.movieSearchResults,
-  });
-export default connect(mapStateToProps)(MovieSearchResults);
+const mapStateToProps = reduxState => ({
+  reduxState
+});
+
+export default connect(mapStateToProps)(List);
