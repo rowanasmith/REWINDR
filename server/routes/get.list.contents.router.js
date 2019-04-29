@@ -6,7 +6,9 @@ const axios = require('axios')
 router.get('/:id', (req, res) => {
     let id = req.params.id
 
-    const queryText = `SELECT * FROM list_contents WHERE list_id = $1;`
+    const queryText = `SELECT  * FROM "releases"
+    JOIN "list_contents" ON "releases"."id" = "list_contents"."release_id" 
+    WHERE "list_contents"."list_id" = $1`
     pool.query(queryText, [id])
       .then((result) => { res.send(result.rows); })
       .catch((err) => {

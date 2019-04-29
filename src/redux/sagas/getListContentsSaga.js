@@ -6,9 +6,9 @@ function* getListContents(action) {
     try {
         console.log(action.payload);
 
-            const getResponse = yield axios.get(`/listcontents/${action.payload}`);
-
-        yield put ({type: "SHOW_LIST_CONTENTS", payload: getResponse.data});
+        const getResponse = yield axios.get(`/listcontents/${action.payload}`);
+      console.log(getResponse.data)
+        yield put ({type: "DISPLAY_LIST_CONTENTS", payload: getResponse.data});
       } catch (error) {
         console.log(`Couldn't get lists`, error);
         alert(`Sorry, couldn't get the lists. Try again later`);
