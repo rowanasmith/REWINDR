@@ -7,6 +7,21 @@ import ReleaseTable from '../ReleaseTable/ReleaseTable'
 
 class MovieDisplay extends Component {
 
+
+
+  getUrl = () => {
+    const keySplit = window.location.hash.split('=');
+    const id = keySplit[1];
+    this.props.dispatch({
+      type: "CURRENT_MOVIE",
+      payload: id,
+    }); 
+  }
+
+  componentDidMount(){
+    this.getUrl();
+  }
+
     getReleases = () => {
 
         this.props.dispatch({ 

@@ -1,11 +1,25 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import ListContents from '../ListContents/ListContents'
 
 
 
 
 class List extends Component {
+  getUrl = () => {
+    const keySplit = window.location.hash.split('=');
+    const id = keySplit[1];
+    this.props.dispatch({
+      type: "GET_LIST_CONTENTS",
+      payload: id,
+    }); 
+  }
 
+
+
+  componentDidMount(){
+    this.getUrl();
+  }
 
   render() {
       if (this.props.reduxState.listContentReducer === 'State'){
@@ -24,10 +38,7 @@ class List extends Component {
           </thead>
           <tbody>
           {this.props.reduxState.listContentReducer.map(item => 
-              (<tr key={item.id}><td><img className="poster" src={`${item.image_url}`} alt='Poster'></img></td>
-              <td>{item.release_title}</td>
-              <td>{item.release_year}</td><td>{item.company}</td>
-              <td>{item.release_notes}</td><td>{item.user_notes}</td></tr>)
+              (<ListContents item={item} key={item.id}/>)
             )}
           </tbody>
         </table>

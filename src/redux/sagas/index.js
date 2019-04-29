@@ -12,6 +12,7 @@ import displayListSaga from './displayListSaga';
 import addToCollectionSaga from './addToCollectionSaga'
 import currentListSaga from './currentListSaga';
 import getListContentsSaga from './getListContentsSaga';
+import deleteListItemSaga from './deleteListItemSaga'
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -35,5 +36,6 @@ export default function* rootSaga() {
     addToCollectionSaga(),
     currentListSaga(),
     getListContentsSaga(),
+    deleteListItemSaga(),
   ]);
 }

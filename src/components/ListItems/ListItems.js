@@ -4,11 +4,8 @@ import {connect} from 'react-redux';
 class ListItems extends Component {
 
   handleClick = () => {
-    this.props.dispatch({
-      type: "GET_LIST_CONTENTS",
-      payload: this.props.item.id,
-  });    
-  window.location = `#/list`;
+   
+  window.location = `#/list?id=${this.props.item.id}`;
 
   }
 

@@ -32,6 +32,8 @@ class NewListForm extends Component {
       type: "ADD_NEW_LIST",
       payload: this.state.newList
     });
+    window.location = `#/mylists`;
+
   };
 
   render() {

@@ -5,11 +5,8 @@ import './MovieSearchResultItem.css'
 class MovieSearchResultItem extends Component {
 
   handleClick = () => {
-    this.props.dispatch({
-      type: "CURRENT_MOVIE",
-      payload: this.props.item.imdbID,
-  });    
-  window.location = `#/movie`;
+   
+  window.location = `#/movie?id=${this.props.item.imdbID}`;
 
   }
 

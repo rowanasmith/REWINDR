@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-
+import './AddToList.css';
 
 const mapStateToProps = reduxState => ({
   reduxState
@@ -57,6 +57,8 @@ class AddToList extends Component {
       type: "ADD_TO_LIST",
       payload: this.state.newListAddition
     });
+    window.location = `#/list?id=${this.state.newListAddition.list_id}`;
+
   };
 
   render() {
@@ -65,7 +67,7 @@ class AddToList extends Component {
         <h1>Add this release!</h1>
         <img class="center" src={`${this.props.reduxState.addToListReducer.image_url}`} alt='Poster'></img>
 
-        <form>
+        <form className="form">
           <select value={this.state.newListAddition.list_id} onChange={this.handleChange("list_id")}>
         <option>Choose a List</option>
           {this.props.reduxState.setListsReducer.map(item => (
@@ -74,8 +76,9 @@ class AddToList extends Component {
             )}
 
           </select>
-            <input type="text" onChange={this.handleChange("personal_notes")} value={this.state.newListAddition.personal_notes} placeholder="Personal Notes"></input>
-            <button onClick={this.addNewRelease}>Add To List</button>
+            <input type="text" className="center" onChange={this.handleChange("personal_notes")} value={this.state.newListAddition.personal_notes} placeholder="Personal Notes"></input>
+            <br />
+            <button className="center" onClick={this.addNewRelease}>Add To List</button>
         </form>
       </div>
     );

@@ -85,7 +85,7 @@ class App extends Component {
               path="/addtolist"
               component={AddToList}
             />
-              <Route
+              <ProtectedRoute
               exact
               path="/list"
               component={List}
