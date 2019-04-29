@@ -15,7 +15,6 @@ class List extends Component {
     else return(
       <div className="App">
         <header>
-        <h1></h1>
         <h3>List Contents: </h3>
         </header>
         <table className="table">

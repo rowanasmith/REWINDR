@@ -14,7 +14,7 @@ class MovieSearchResults extends Component {
       <div className="App">
         <header>
         <h1>Search Results</h1>
-        <h3>Total Results: {this.props.movieSearchResults.totalResults}</h3>
+        <h3 className="results">Total Results: {this.props.movieSearchResults.totalResults}</h3>
         </header>
         <table className="table">
           <thead>

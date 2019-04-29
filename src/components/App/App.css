@@ -57,11 +57,13 @@ form {
 .table {
     text-align: center;
     padding: 40px;
+    outline-color: white;
+    outline-width: 1px;
 }
 
 td {
     padding: 20px;
-    font-size: 20px;
+    font-size: 30px;
 }
 
 th {

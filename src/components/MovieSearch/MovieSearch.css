@@ -1,0 +1,16 @@
+input { 
+    min-width: 200px;
+    font-size: 30px;
+    padding: 10px;
+}
+
+button {
+    font-size: 25px;
+    min-width: 60px;
+    min-height: 40px;
+}
+
+.search {
+    width: 100%;
+    text-align: center;
+}

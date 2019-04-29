@@ -1,6 +1,8 @@
 .MovieDisplay {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    padding: 100px;
 
 }
 
@@ -10,4 +12,10 @@
 
 th {
     font-size: 25px;
+    padding: 25px;
+}
+
+td {
+    text-align: center;
+    padding: 25px;
 }

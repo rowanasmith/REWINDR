@@ -1,6 +1,4 @@
-.poster {
-    max-width: 200px;
-}
+
 
 .table {
     text-align: center;
@@ -14,4 +12,8 @@ td {
 
 th {
     font-size: 40px;
+}
+
+.results {
+    width: 100%;
 }

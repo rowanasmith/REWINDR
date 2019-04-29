@@ -52,7 +52,7 @@ class NewReleasePage extends Component {
         <br />
             <input type="text" onChange={this.handleChange("company")} value={this.state.newRelease.name} placeholder="Company (Required)"></input>
             <input type="text" onChange={this.handleChange("release_title")} value={this.state.newRelease.release_title} placeholder="Release Title (Required)"></input>
-            <input type="text" onChange={this.handleChange("release_year")} value={this.state.newRelease.release_year} placeholder="Release Year"></input>
+            <input type="text" onChange={this.handleChange("release_year")} value={this.state.newRelease.release_year} placeholder="Release Year (Required)"></input>
             <input type="text" onChange={this.handleChange("release_notes")} value={this.state.newRelease.release_notes} placeholder="Release Notes"></input>
             <input type="text" onChange={this.handleChange("catalog_number")} value={this.state.newRelease.catalog_number} placeholder="Catalog Number"></input>
             <button onClick={this.addNewRelease}>Add New Release</button>
