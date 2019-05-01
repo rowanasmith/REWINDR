@@ -16,8 +16,8 @@ class MovieSearchResultItem extends Component {
     editRelease = () => {
       this.props.dispatch({
         type: "SET_CURRENT_RELEASE",
-        payload: this.props.item.id
-      })
+        payload: this.props.item.id,
+      }); 
       window.location = `#/editrelease`
     }
 

@@ -6,8 +6,8 @@ function* setCurrentRelease(action) {
         console.log(action.payload);
         
       const getResponse = yield axios.get(`/currentrelease/${action.payload}`);
-  
-      yield put({type: "DISPLAY_CURRENT_RELEASE", payload: getResponse.data });
+      console.log(getResponse)
+      yield put({type: "DISPLAY_CURRENT_RELEASE", payload: getResponse.data[0] });
     } catch (error) {
       console.log(`Couldn't get movie  results`, error);
       alert(`Sorry, couldn't get the movie results. Try again later`);

@@ -22,6 +22,7 @@ const getListContentsRouter = require ('./routes/get.list.contents.router')
 const deleteListItemRouter = require ('./routes/delete.list.item.router')
 const deleteListRouter = require ('./routes/delete.list.router')
 const selectReleaseRouter = require ('./routes/select.release.router')
+const editReleaseRouter = require ('./routes/edit.release.router')
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -48,6 +49,7 @@ app.use('/listcontents', getListContentsRouter);
 app.use('/listitem', deleteListItemRouter)
 app.use('/deletelist', deleteListRouter)
 app.use('/currentrelease', selectReleaseRouter)
+app.use('/editrelease', editReleaseRouter)
 
 
 // Serve static files

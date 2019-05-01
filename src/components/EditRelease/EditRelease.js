@@ -6,24 +6,39 @@ const mapStateToProps = reduxState => ({
   reduxState
 });
 
+
 class EditRelease extends Component {
+
+
+
+
+
   state = {
     release: {
+      release_id: "",
       company: "",
       release_year: "",
       release_notes: "",
       catalog_number: "",
-      release_title: ""
+      release_title: "",
     }
   };
 
-  
+  componentDidMount(){
+    this.setState({
+      release: {
+        ...this.state.release,
+      release_id: this.props.reduxState.currentReleaseReducer.id
+
+      }
+    })
+  }
 
   //this will update the state as the input forms are changed
   handleChange = propertyName => event => {
     this.setState({
-      newRelease: {
-        ...this.state.newRelease,
+      release: {
+        ...this.state.release,
         [propertyName]: event.target.value
       }
     });
@@ -45,12 +60,12 @@ class EditRelease extends Component {
     return (
       <div>
         <h1>Edit this relase!</h1>
-        <img class="center" src={`${this.props.reduxState.currentMovieReducer.Poster}`} alt='Poster'></img>
-
+        <img className="center" src={`${this.props.reduxState.currentReleaseReducer.image_url}`} alt='Poster'></img>
+{JSON.stringify(this.state)}
         <form>
         <br />
             <label>Company:</label>
-            <input type="text" onChange={this.handleChange("company")}  placeholder="Release Company (Required)" ></input>
+            <input type="text" onChange={this.handleChange("company")}  value={this.state.release.company} placeholder="Release Company (Required)" ></input>
             <br/>
             <label>Release Title:</label>
             <input type="text" onChange={this.handleChange("release_title")} value={this.state.release.release_title} placeholder="Release Title (Required)"></input>

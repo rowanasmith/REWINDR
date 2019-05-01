@@ -1,4 +1,4 @@
-const currentReleaseReducer = (state = ['State'], action) => {
+const currentReleaseReducer = (state = 'State', action) => {
 
 
     if (action.type === 'DISPLAY_CURRENT_RELEASE'){
