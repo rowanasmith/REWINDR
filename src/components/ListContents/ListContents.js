@@ -4,12 +4,16 @@ import {connect} from 'react-redux';
 class ListContents extends Component {
 
     handleDelete = () => {
+        if (window.confirm("Are you sure you want to delete?")){
         this.props.dispatch({
           type: "DELETE_LIST_ITEM",
           payload: this.props.item.id
         })
         window.location.reload();
         }
+        else return
+      }
+      
       
 
   

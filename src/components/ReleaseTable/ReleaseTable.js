@@ -28,6 +28,7 @@ class ReleaseTable extends Component {
                 <th>Image</th>
                 <th>Company</th>
                 <th>Release Year</th>
+                <th>Release Notes</th>
                 <th>Catalog Number</th>
                 </tr>
             </thead>

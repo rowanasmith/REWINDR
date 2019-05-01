@@ -9,11 +9,22 @@ class ListItems extends Component {
 
   }
 
+  handleDelete = () => {
+    if (window.confirm("Are you sure you want to delete this list?")){
+    this.props.dispatch({
+      type: "DELETE_LIST",
+      payload: this.props.item.id
+    })
+    window.location.reload();
+    }
+    else return
+  }
 
   render() {
     return (
         <tr onClick={this.handleClick} key={this.props.item.id}>
         <td>{this.props.item.list_name}</td>
+        <td><button onClick={this.handleDelete}>Delete List</button></td>
       </tr>
     );
   }

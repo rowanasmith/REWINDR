@@ -20,6 +20,8 @@ const displayListRouter = require ('./routes/list.display.router')
 const addMovieRouter = require ('./routes/add.movie.router')
 const getListContentsRouter = require ('./routes/get.list.contents.router')
 const deleteListItemRouter = require ('./routes/delete.list.item.router')
+const deleteListRouter = require ('./routes/delete.list.router')
+const selectReleaseRouter = require ('./routes/select.release.router')
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -44,6 +46,8 @@ app.use('/list', displayListRouter);
 app.use('/addmovie', addMovieRouter);
 app.use('/listcontents', getListContentsRouter);
 app.use('/listitem', deleteListItemRouter)
+app.use('/deletelist', deleteListRouter)
+app.use('/currentrelease', selectReleaseRouter)
 
 
 // Serve static files

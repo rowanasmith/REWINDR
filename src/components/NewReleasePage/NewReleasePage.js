@@ -40,6 +40,8 @@ class NewReleasePage extends Component {
       type: "ADD_NEW_RELEASE",
       payload: this.state.newRelease
     });
+    window.location = `#/movie?id=${this.props.reduxState.currentMovieReducer.imdbID}`;
+
   };
 
   render() {

@@ -55,6 +55,7 @@ class MovieDisplay extends Component {
               <p>Written By: {this.props.currentMovieReducer.Writer}</p>
               <p>Starring: {this.props.currentMovieReducer.Actors}</p>
               <p>{this.props.currentMovieReducer.Plot}</p>
+              <p>IMDB Rating: {this.props.currentMovieReducer.imdbRating}/10</p>
               {this.getReleases()}
           </div>
           {/* <button onClick={this.getReleases}>Click Here to See Releases</button> */}

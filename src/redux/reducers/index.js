@@ -8,6 +8,7 @@ import releasesReducer from './releasesReducer'
 import setListsReducer from './setListsReducer';
 import addToListReducer from './addToListReducer';
 import listContentReducer from './listContentReducer'
+import currentReleaseReducer from './displayCurrentReleaseReducer'
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -16,6 +17,7 @@ import listContentReducer from './listContentReducer'
 // Lets make a bigger object for our store, with the objects from our reducers.
 // This is what we get when we use 'state' inside of 'mapStateToProps'
 const rootReducer = combineReducers({
+  currentReleaseReducer, //this holds the specified release to allow it to be edited
   listContentReducer, //this will hold all the rows specified to the chosen list.
   addToListReducer, //this will store data about a specific release that can then be sent to the list item db
   setListsReducer, //this will pull all the user's lists from the db and display them
