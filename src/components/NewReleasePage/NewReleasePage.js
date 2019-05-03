@@ -1,16 +1,41 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import  './NewReleasePage.css'
+import "./NewReleasePage.css";
+import PropTypes from "prop-types";
+import classNames from "classnames";
+import { withStyles } from "@material-ui/core/styles";
+import MenuItem from "@material-ui/core/MenuItem";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import { white } from "material-ui/styles/colors";
 
 
 const mapStateToProps = reduxState => ({
   reduxState
 });
 
+const styles = theme => ({
+  container: {
+    display: "flex",
+    flexWrap: "wrap"
+  },
+  textField: {
+    marginLeft: theme.spacing.unit,
+    marginRight: theme.spacing.unit
+  },
+  dense: {
+    marginTop: 19
+    
+  },
+  menu: {
+    width: 200
+  }
+});
+
 class NewReleasePage extends Component {
   state = {
     newRelease: {
-        imdb_id: `${this.props.reduxState.currentMovieReducer.imdbID}`,
+      imdb_id: `${this.props.reduxState.currentMovieReducer.imdbID}`,
       image_url: `${this.props.reduxState.currentMovieReducer.Poster}`,
       company: "",
       release_year: "",
@@ -20,7 +45,7 @@ class NewReleasePage extends Component {
     }
   };
 
-  
+
 
   //this will update the state as the input forms are changed
   handleChange = propertyName => event => {
@@ -40,28 +65,94 @@ class NewReleasePage extends Component {
       type: "ADD_NEW_RELEASE",
       payload: this.state.newRelease
     });
-    window.location = `#/movie?id=${this.props.reduxState.currentMovieReducer.imdbID}`;
-
+    window.location = `#/movie?id=${
+      this.props.reduxState.currentMovieReducer.imdbID
+    }`;
+    window.location.reload();
   };
 
   render() {
+    const { classes } = this.props;
     return (
       <div>
-        <h1>Add a New Release!</h1>
-        <img class="center" src={`${this.props.reduxState.currentMovieReducer.Poster}`} alt='Poster'></img>
+        <h1>Input New Release Information:</h1>
+        <form className={classes.container} noValidate autoComplete="off">
+          <TextField
+            required
+            id="outlined-company"
+            label="Company"
 
-        <form>
-        <br />
-            <input type="text" onChange={this.handleChange("company")} value={this.state.newRelease.name} placeholder="Company (Required)"></input>
-            <input type="text" onChange={this.handleChange("release_title")} value={this.state.newRelease.release_title} placeholder="Release Title (Required)"></input>
-            <input type="text" onChange={this.handleChange("release_year")} value={this.state.newRelease.release_year} placeholder="Release Year (Required)"></input>
-            <input type="text" onChange={this.handleChange("release_notes")} value={this.state.newRelease.release_notes} placeholder="Release Notes"></input>
-            <input type="text" onChange={this.handleChange("catalog_number")} value={this.state.newRelease.catalog_number} placeholder="Catalog Number"></input>
-            <button onClick={this.addNewRelease}>Add New Release</button>
+            className={classes.textField}
+            value={this.state.name}
+            style={{backgroundColor: `white`}}
+
+            onChange={this.handleChange("company")}
+            margin="normal"
+            variant="outlined"
+          />
+
+          <TextField
+            required
+            id="outlined-title"
+            label="Release Title"
+            style={{backgroundColor: `white`}}
+
+            value={this.state.release_title}
+            onChange={this.handleChange("release_title")}
+            className={classes.textField}
+            margin="normal"
+            variant="outlined"
+          />
+          <TextField
+            required
+            id="outlined-release-year"
+            label="Release Year"
+            value={this.state.release_year}
+            style={{backgroundColor: `white`}}
+
+            onChange={this.handleChange("release_year")}
+            className={classes.textField}
+            margin="normal"
+            variant="outlined"
+          />
+          <TextField
+            id="outlined-catalog-number"
+            label="Catalog Number"
+            value={this.state.catalog_number}
+            style={{backgroundColor: `white`}}
+
+            onChange={this.handleChange("catalog_number")}
+            className={classes.textField}
+            margin="normal"
+            variant="outlined"
+          />
+
+          <TextField
+            id="outlined-multiline-flexible"
+            label="Release Notes"
+            multiline
+            rowsMax="4"
+            style={{backgroundColor: `white`}}
+            value={this.state.release_notes}
+            onChange={this.handleChange("release_notes")}
+            className={classes.textField}
+            margin="normal"
+            variant="filled"
+          />
+            <Button
+            variant="contained"
+            color="primary"
+
+            className={classes.button}
+            onClick={this.addNewRelease}
+          >
+            Add New Release
+          </Button>
         </form>
       </div>
     );
   }
 }
 
-export default connect(mapStateToProps)(NewReleasePage);
+
+export default connect(mapStateToProps)(withStyles(styles)(NewReleasePage));

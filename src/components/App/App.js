@@ -22,6 +22,7 @@ import NewListForm from '../NewListForm/NewListForm';
 import AddToList from '../AddToList/AddToList'
 import List from '../List/List'
 import EditRelease from '../EditRelease/EditRelease'
+import EditListItem from '../EditListItem/EditListItem'
 
 
 import './App.css';
@@ -95,6 +96,11 @@ class App extends Component {
               exact
               path="/editrelease"
               component={EditRelease}
+            />
+            <ProtectedRoute
+              exact
+              path="/editlistitem"
+              component={EditListItem}
             />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />

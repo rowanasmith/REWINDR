@@ -21,11 +21,12 @@ class ReleaseTable extends Component {
         <h1>
             Releases
         </h1>
-        <button onClick={this.addNew}>Add New Release</button>
+        <button className="button" onClick={this.addNew}>Add New Release</button>
         <table>
             <thead>
                 <tr>
                 <th>Image</th>
+                <th>Release Title</th>
                 <th>Company</th>
                 <th>Release Year</th>
                 <th>Release Notes</th>

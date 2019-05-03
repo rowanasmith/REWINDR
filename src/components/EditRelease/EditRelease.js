@@ -15,7 +15,6 @@ class EditRelease extends Component {
 
   state = {
     release: {
-      release_id: "",
       company: "",
       release_year: "",
       release_notes: "",
@@ -24,18 +23,11 @@ class EditRelease extends Component {
     }
   };
 
-  componentDidMount(){
-    this.setState({
-      release: {
-        ...this.state.release,
-      release_id: this.props.reduxState.currentReleaseReducer.id
-
-      }
-    })
-  }
-
   //this will update the state as the input forms are changed
-  handleChange = propertyName => event => {
+  handleChange = event => {
+
+    let propertyName = event.target.getAttribute('name');
+
     this.setState({
       release: {
         ...this.state.release,
@@ -48,9 +40,16 @@ class EditRelease extends Component {
   //saga and eventually post to the db as well as clear
   //all input fields
   editRelease = () => {
+    let releasePayload = this.state.release;
+
+    releasePayload = {
+      ...releasePayload,
+      release_id: this.props.reduxState.currentReleaseReducer.id
+    }
+
     this.props.dispatch({
       type: "EDIT_RELEASE",
-      payload: this.state.release
+      payload: releasePayload
     });
     window.location = `#/movie?id=${this.props.reduxState.currentMovieReducer.imdbID}`;
 
@@ -59,25 +58,25 @@ class EditRelease extends Component {
   render() {
     return (
       <div>
-        <h1>Edit this relase!</h1>
+        <h1>Edit this release!</h1>
         <img className="center" src={`${this.props.reduxState.currentReleaseReducer.image_url}`} alt='Poster'></img>
-{JSON.stringify(this.state)}
+        {JSON.stringify(this.state)}
         <form>
         <br />
             <label>Company:</label>
-            <input type="text" onChange={this.handleChange("company")}  value={this.state.release.company} placeholder="Release Company (Required)" ></input>
+            <input type="text" onChange={this.handleChange}  name="company" value={this.state.release.company} placeholder="Release Company (Required)" ></input>
             <br/>
             <label>Release Title:</label>
-            <input type="text" onChange={this.handleChange("release_title")} value={this.state.release.release_title} placeholder="Release Title (Required)"></input>
+            <input type="text" onChange={this.handleChange} name="release_title" value={this.state.release.release_title} placeholder="Release Title (Required)"></input>
             <br />
             <label>Release Year:</label>
-            <input type="text" onChange={this.handleChange("release_year")} value={this.state.release.release_year} placeholder="Release Year (Required)"></input>
+            <input type="text" onChange={this.handleChange} name="release_year" value={this.state.release.release_year} placeholder="Release Year (Required)"></input>
             <br />
             <label>Release Notes:</label>
-            <input type="text" onChange={this.handleChange("release_notes")} value={this.state.release.release_notes} placeholder="Release Notes"></input>
+            <input type="text" onChange={this.handleChange} name="release_notes" value={this.state.release.release_notes} placeholder="Release Notes"></input>
             <br />
             <label>Catalog #: </label>
-            <input type="text" onChange={this.handleChange("catalog_number")} value={this.state.release.catalog_number} placeholder="Catalog Number"></input>
+            <input type="text" onChange={this.handleChange} name="catalog_number" value={this.state.release.catalog_number} placeholder="Catalog Number"></input>
             <br />
             <button onClick={this.editRelease}>Edit Release</button>
         </form>

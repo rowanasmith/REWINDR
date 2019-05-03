@@ -8,7 +8,11 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 // const UserPage = ({ user }) => (
 // and then instead of `props.user.username` you could use `user.username`
 const UserPage = (props) => (
+
+  
   <div>
+        <img className="vhs" src="https://cdn.freebiesupply.com/logos/large/2x/vhs-logo-png-transparent.png" alt="vhs"></img>
+
     <h1 id="welcome">
       Welcome, { props.user.username }!
     </h1>

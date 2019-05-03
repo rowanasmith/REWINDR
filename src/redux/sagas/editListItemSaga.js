@@ -1,12 +1,12 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
-function* editRelease(action) {
+function* editListItem(action) {
     
     try {
         console.log(action.payload);
 
-        yield axios.put(`/editrelease`, action.payload);
+        yield axios.put(`/editlistitem`, action.payload);
         alert("Release updated successfully")
         
       } catch (error) {
@@ -15,8 +15,8 @@ function* editRelease(action) {
       }
   }
 
-  function* editReleaseSaga() {
-    yield takeLatest("EDIT_RELEASE", editRelease);
+  function* editListItemSaga() {
+    yield takeLatest("EDIT_LIST_ITEM", editListItem);
   }
   
-  export default editReleaseSaga;
+  export default editListItemSaga;

@@ -15,7 +15,7 @@ class ListItems extends Component {
       type: "DELETE_LIST",
       payload: this.props.item.id
     })
-    window.location.reload();
+    // window.location.reload();
     }
     else return
   }

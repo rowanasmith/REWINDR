@@ -26,6 +26,7 @@ class MovieSearchResultItem extends Component {
     return (
         <tr>
         <td><img className="releaseposter" src={`${this.props.item.image_url}`} alt='Poster'></img></td>
+        <td>{this.props.item.release_title}</td>
         <td>{this.props.item.company}</td>
         <td>{this.props.item.release_year}</td>
         <td>{this.props.item.release_notes}</td>

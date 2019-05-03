@@ -14,7 +14,13 @@ class ListContents extends Component {
         else return
       }
       
-      
+      handleEdit = () => {
+        this.props.dispatch({
+          type: "SET_CURRENT_LIST_ITEM",
+          payload: this.props.item.id,
+        }); 
+        window.location = `#/editlistitem`
+      }
 
   
 
@@ -24,6 +30,7 @@ class ListContents extends Component {
         <td>{this.props.item.release_title}</td>
         <td>{this.props.item.release_year}</td><td>{this.props.item.company}</td>
         <td>{this.props.item.release_notes}</td><td>{this.props.item.user_notes}</td>
+        {/* <td><button onClick={this.handleEdit}>Edit</button></td> */}
         <td><button onClick={this.handleDelete}>Delete From List</button></td></tr>
     );
   }
