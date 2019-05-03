@@ -7,7 +7,7 @@ import MovieSearchResultItem from '../MovieSearchResultItem/MovieSearchResultIte
 
 class MovieSearchResults extends Component {
 
-
+//the results from the API request will be mapped and displayed in this table
   render() {
       if (this.props.movieSearchResults.Search){
     return (

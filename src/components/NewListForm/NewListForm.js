@@ -27,6 +27,7 @@ class NewListForm extends Component {
     });
   };
 
+  //this will post the input data from the form to the database
   addNewRelease = () => {
     this.props.dispatch({
       type: "ADD_NEW_LIST",

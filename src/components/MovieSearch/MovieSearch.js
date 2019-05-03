@@ -18,6 +18,8 @@ class MovieSearch extends Component {
         
     };
   
+    //this will send a request to the api based on the input in the
+    //text field
     getMovie = () => {
 
         console.log(this.state.search);

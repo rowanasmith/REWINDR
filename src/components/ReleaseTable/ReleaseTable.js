@@ -5,6 +5,7 @@ import ReleasesTableItem from '../ReleasesTableItem/ReleasesTableItem'
 
 
 class ReleaseTable extends Component {
+    //this will take you to the page where a new release can be created
     addNew = () => {
         window.location = "#/newrelease";
 

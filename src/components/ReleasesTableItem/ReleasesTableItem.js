@@ -4,6 +4,7 @@ import './ReleasesTableItem.css'
 
 class MovieSearchResultItem extends Component {
 
+  //this will store this release in a reducer and take you to the add release page
     addToCollection = () => {
         this.props.dispatch({
             type: "ADD_TO_COLLECTION",
@@ -13,6 +14,8 @@ class MovieSearchResultItem extends Component {
 
     }
 
+    //this will allow you to edit the information that was entered during the creation
+    //of the release
     editRelease = () => {
       this.props.dispatch({
         type: "SET_CURRENT_RELEASE",

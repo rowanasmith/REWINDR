@@ -8,7 +8,8 @@ import ReleaseTable from '../ReleaseTable/ReleaseTable'
 class MovieDisplay extends Component {
 
 
-
+//this will allow the page to be permanent by using the id in the url
+//to get the specified movie from the api
   getUrl = () => {
     const keySplit = window.location.hash.split('=');
     const id = keySplit[1];
@@ -22,6 +23,8 @@ class MovieDisplay extends Component {
     this.getUrl();
   }
 
+  //this will make a request to the database to GET all releases associated with
+  //this specific movie
     getReleases = () => {
 
         this.props.dispatch({ 
