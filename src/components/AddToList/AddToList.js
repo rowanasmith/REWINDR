@@ -12,6 +12,7 @@ const mapStateToProps = reduxState => ({
 
 class AddToList extends Component {
 
+  //this will get all of the user's lists to allow them to be chosen in the selecter
     getLists = () => {
         this.props.dispatch({
             type: "GET_LISTS",
@@ -50,8 +51,8 @@ class AddToList extends Component {
   };
 
   //this function will send the state to get caught by
-  //saga and eventually post to the db as well as clear
-  //all input fields
+  //saga and eventually post to the db. This will then add the
+  //release to the chosen list
   addNewRelease = () => {
     this.props.dispatch({
       type: "ADD_TO_LIST",
@@ -76,7 +77,7 @@ class AddToList extends Component {
             )}
 
           </select>
-            <input type="text" className="center" onChange={this.handleChange("personal_notes")} value={this.state.newListAddition.personal_notes} placeholder="Personal Notes"></input>
+            {/* <input type="text" className="center" onChange={this.handleChange("personal_notes")} value={this.state.newListAddition.personal_notes} placeholder="Personal Notes"></input> */}
             <br />
             <button className="center" onClick={this.addNewRelease}>Add To List</button>
         </form>

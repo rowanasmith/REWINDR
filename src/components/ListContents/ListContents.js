@@ -3,6 +3,8 @@ import {connect} from 'react-redux';
 
 class ListContents extends Component {
 
+  //this will dispatch a delete request to the server after the user
+  //confirms their choice after clicking the delete button
     handleDelete = () => {
         if (window.confirm("Are you sure you want to delete?")){
         this.props.dispatch({
@@ -14,10 +16,12 @@ class ListContents extends Component {
         else return
       }
       
+      //this will send a request to get and store the current chosen release
+      //in a reducer, then take the user to the edit page
       handleEdit = () => {
         this.props.dispatch({
-          type: "SET_CURRENT_LIST_ITEM",
-          payload: this.props.item.id,
+          type: "SET_CURRENT_RELEASE",
+          payload: this.props.item.release_id,
         }); 
         window.location = `#/editlistitem`
       }

@@ -37,8 +37,8 @@ class EditRelease extends Component {
   };
 
   //this function will send the state to get caught by
-  //saga and eventually post to the db as well as clear
-  //all input fields
+  //saga and then be sent to the DB as a put function to
+  //update the row designated by the ID
   editRelease = () => {
     let releasePayload = this.state.release;
 
@@ -51,6 +51,8 @@ class EditRelease extends Component {
       type: "EDIT_RELEASE",
       payload: releasePayload
     });
+
+    //this will take you back to the page for the movie you are looking at
     window.location = `#/movie?id=${this.props.reduxState.currentMovieReducer.imdbID}`;
 
   };

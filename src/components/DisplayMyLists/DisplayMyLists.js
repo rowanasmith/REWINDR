@@ -11,7 +11,8 @@ class DisplayMyLists extends Component {
     }
 
 
-
+//This will gather all the lists associated with the user and store them in
+//a reducer
     getLists = () => {
         this.props.dispatch({
             type: "GET_LISTS",
@@ -19,12 +20,17 @@ class DisplayMyLists extends Component {
         });
     }
 
+    //this will take you to the page that allows you to create
+    //a new list
     addNew = () => {
         window.location = "#/newlist";
 
     }
 
     renderPage = () => {
+
+        //this turnary will prevent the page from loading before the lists are
+        //put into the reducer
         if (this.props.setListsReducer[0] === 'State'){
       return (
           <div>

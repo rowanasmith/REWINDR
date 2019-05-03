@@ -47,7 +47,7 @@ class EditRelease extends Component {
       type: "EDIT_LIST_ITEM",
       payload: releasePayload
     });
-    window.location = `#/movie?id=${this.props.reduxState.currentMovieReducer.imdbID}`;
+    window.location = `#/list?id=${this.props.reduxState.listContentReducer.list_id}`;
 
   };
 
@@ -59,7 +59,7 @@ class EditRelease extends Component {
         <form>
         <br />
             <label>User Notes:</label>
-            <input type="text" onChange={this.handleChange}  name="user_notes" value={this.state.release.company} placeholder="Release Company (Required)" ></input>
+            <input type="text" onChange={this.handleChange}  name="user_notes" value={this.state.release.company} placeholder="User Notes" ></input>
             <br />
             <button onClick={this.editRelease}>Edit Item</button>
         </form>
