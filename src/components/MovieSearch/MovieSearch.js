@@ -34,6 +34,8 @@ class MovieSearch extends Component {
     return (
       <div className="App">
         <h1>Search for a Movie!</h1>
+        <img className="vhs" src="https://cdn.freebiesupply.com/logos/large/2x/vhs-logo-png-transparent.png" alt="vhs"></img>
+
         <div className="search">
         <input placeholder="Movie Title" value={this.search} onChange={this.handleChange} ></input>
         <button onClick={this.getMovie}>Search</button>

@@ -11,7 +11,7 @@ const UserPage = (props) => (
 
   
   <div>
-        <img className="vhs" src="https://cdn.freebiesupply.com/logos/large/2x/vhs-logo-png-transparent.png" alt="vhs"></img>
+        <img className="vhs" src="http://37.media.tumblr.com/fb3c4aa2336684c9753e7d5846659405/tumblr_mnbt1dR0wI1qzdpr4o1_500.gif" alt="vhs"></img>
 
     <h1 id="welcome">
       Welcome, { props.user.username }!
